@@ -4,7 +4,7 @@
   transition: var(--common-transition);
   border-radius: var(--button-border-radius);
   text-align: center;
-  width: 216px;
+  width: 100%;
   box-sizing: border-box;
   cursor: pointer;
   padding: 12px 0;

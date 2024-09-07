@@ -1,12 +1,12 @@
 import React from "react";
 
-import { ButtonReturn } from "../../ui-lib/button-return/button-return";
+import SignIn from "../../components/sign-in/sign-in";
 
 const Login = () => {
 
   return (
     <div>
-      <ButtonReturn/>
+      <SignIn />
       Login
     </div>
   );

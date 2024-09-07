@@ -21,6 +21,8 @@ const ApplicationView = () => {
   return (
     <Routes>
       <Route path="/" element={sharedValue ? <Navigate to="/user-list" replace /> : <Navigate to="/sing-in" replace />} />
+      <Route path="/sing-in" element={<Login />} />
+      <Route path="/sing-up" element={<Register />} />
       <Route 
         path="/user-list" 
         element={
@@ -29,8 +31,6 @@ const ApplicationView = () => {
           </ProtectedRoute>
         }
       />
-      <Route path="/sing-in" element={<Login />} />
-      <Route path="/sing-up" element={<Register />} />
       <Route 
         path="/profile" 
         element={
