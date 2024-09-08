@@ -1,7 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 560px;
   width: clamp(300px, 50vw, 400px);
   margin-bottom: 64px;
 }

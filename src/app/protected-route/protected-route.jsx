@@ -3,11 +3,11 @@ import { Navigate } from "react-router-dom";
 
 import { StateContext } from "../../utils/contexts/contexts";
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ children, role }) => {
   const { sharedValue } = useContext(StateContext);
-
+  
   return (
-    sharedValue ? children : <Navigate to="/sing-in" replace/>
+    sharedValue["role"] === role ? children : <Navigate to="/" replace/>
   );
 };
 

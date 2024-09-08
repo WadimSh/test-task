@@ -11,7 +11,9 @@
 }
 
 .button:disabled {
-  opacity: 0.4;
+  background-color: var(--grey-color-9);
+  color: var(--text-primary-color);
+  cursor: no-drop;
 }
 
 .primary {
