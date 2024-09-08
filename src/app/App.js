@@ -7,7 +7,7 @@ import { users } from "../utils/constants/data"
 
 const App = () => {
   useEffect(() => {
-    localStorage.clear();
+    //localStorage.clear();
     const storedUsers = localStorage.getItem("users");
     if (!storedUsers) {
       localStorage.setItem("users", JSON.stringify(users));

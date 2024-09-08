@@ -17,6 +17,7 @@ import style from "./sign-up.module.css";
 const SignUp = () => {
   const navigate = useNavigate();
   const { setSharedValue } = useContext(StateContext);
+
   const [userData, setUserData] = useState({
     id: 100,
     name: "",
@@ -25,21 +26,20 @@ const SignUp = () => {
     about: "",
     role: "user",
   });
+
   const [users, setUsers] = useState(() => {
     const storedUsers = localStorage.getItem('users');
     return storedUsers ? JSON.parse(storedUsers) : [];
   });
-  
+
+  const id = users.length + 1;
+
   const addUser = () => {
     const newUsers = [...users, userData];
     localStorage.setItem('users', JSON.stringify(newUsers));
     setUsers(newUsers);
   };
   
-  //useEffect(() => {
-  //  setUsers(JSON.parse(localStorage.getItem('users')));
-  //}, []);
-
   const [errorMessage, setErrorMessage] = useState("");
 
   const usernameValid = userData.name.length >= MINIMUM_USERNAME_LENGTH && userData.name.length <= MAXIMUM_USERNAME_LENGTH;
@@ -50,13 +50,12 @@ const SignUp = () => {
   const onChangeInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setUserData((prevState) => ({ ...prevState, [name]: value }));    
+    setUserData((prevState) => ({ ...prevState, [name]: value, id: id }));    
   };
 
   const registerUser = (event) => {
     event.preventDefault();
     errorMessage && setErrorMessage("");
-    const users = JSON.parse(localStorage.getItem("users")) || [];
     const user = users.find(u => u.name === userData.name && u.password === userData.password && u.email === userData.email);
     if (user) {
       setErrorMessage("Вы уже зарегестрированы");

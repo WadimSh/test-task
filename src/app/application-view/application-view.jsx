@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import Login from "../../pages/login/login";
@@ -15,15 +15,18 @@ const ApplicationView = () => {
   const { sharedValue } = useContext(StateContext);
   const page = {
     admin: "/user-list",
-    user: "/profile",
+    user: `/profile/${sharedValue['id']}`,
   }
   
-  console.log(sharedValue)
+  useEffect(() => {
+    console.log(sharedValue)
+  }, [sharedValue])
+  
   return (
     <Routes>
       <Route path="/" element={
         <Navigate to={page[sharedValue["role"]] || "/sign-in"} replace />
-      } />
+}     />
       <Route path="/sign-in" element={<Login />} />
       <Route path="/sign-up" element={<Register />} />
       <Route 
@@ -37,7 +40,7 @@ const ApplicationView = () => {
         }
       />
       <Route 
-        path="/profile" 
+        path="/profile/:id" 
         element={
           <ProtectedRoute
             role="user"
