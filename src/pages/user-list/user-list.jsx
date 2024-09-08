@@ -7,10 +7,8 @@ const UserList = () => {
   return (
     <>
       {users.map(user => (
-        <div key={user.id} className={`text text_type_button text_color_additional`}>
-          <span>{user.name}" "</span>
-          <span>{user.email}" "</span>
-          <span>{user.password}</span>
+        <div key={user.id} className="text text_type_main text_color_primary">
+          <span>{user.name}: {user.email} - {user.password}</span>
         </div>
       ))}
     </>

@@ -16,13 +16,13 @@ const Login = () => {
       <SignIn />
       <div >
         <p
-          className={`text text_type_main text_color_primary mb-9`}
+          className="text text_type_main text_color_primary mb-9"
         >
           Вы — новый пользователь?
         </p>
         <NavLink
           to="/sign-up"
-          className={`text text_type_button text_color_additional`}
+          className="text text_type_button text_color_additional"
         >
           Зарегистрироваться
         </NavLink>

@@ -8,10 +8,8 @@ const Profile = () => {
   const user = users.find(u => u.id === +id);
 
   return (
-    <div className={`text text_type_button text_color_additional`}>
-      <span>{user.name}</span><br/>
-      <span>{user.email}</span><br/>
-      <span>{user.password}</span>
+    <div className="text text_type_main text_color_primary">
+      <span>{user.name}: {user.email} - {user.password}</span>
     </div>
   );
 };

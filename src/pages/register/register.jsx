@@ -16,13 +16,13 @@ const Register = () => {
       <SignUp />
       <div >
         <p
-          className={`text text_type_main text_color_primary mb-9`}
+          className="text text_type_main text_color_primary mb-9"
         >
           Уже зарегистрированы?
         </p>
         <NavLink
           to="/sign-in"
-          className={`text text_type_button text_color_additional`}
+          className="text text_type_button text_color_additional"
         >
           Войти
         </NavLink>
