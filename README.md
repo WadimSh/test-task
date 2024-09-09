@@ -4,7 +4,7 @@
 
 ## Как начать
 
-- Клонировать репозиторий – `git clone https://github.com/WadimSh/react-burger.git`
+- Клонировать репозиторий – `git clone https://github.com/WadimSh/test-task.git`
 - Установите зависимости – `npm i`
 - Запустите проект – `npm start`
 - Перейти на `http://localhost:3000/`
