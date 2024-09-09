@@ -36,13 +36,19 @@
 }
 
 .link {
-  width: 400px;
+  width: 290px;
   text-decoration: none;
 }
 
-@media screen and (max-width: 938px) {
+@media screen and (max-width: 984px) {
+  .link {
+    width: 434px;
+  }
+}
+
+@media screen and (max-width: 972px) {
   .link {
     width: 100%;
-    max-width: 500px;
+    
   }
 }
