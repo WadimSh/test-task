@@ -10,7 +10,7 @@ const UserFile = () => {
   return (
     <div style={{ width: '90vw', height: '100vh', display: 'flex', flexDirection: 'column', marginTop: '10px' }}>
       <ButtonReturn />
-      <div style={{ width: '400px', marginTop: '8%', alignSelf: 'center' }}>
+      <div style={{ width: '100%', maxWidth: '384px', minWidth: '300px', marginTop: '8%', alignSelf: 'center', display: 'flex', justifyContent: 'center' }}>
       <File id={id} />
       </div>
     </div>

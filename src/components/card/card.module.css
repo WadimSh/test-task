@@ -1,6 +1,6 @@
 .wrapper {
   position: relative;
-  width: clamp(300px, 50vw, 400px);
+  width: 100%;
   background: var(--grey-color-3);
   padding: 20px;
   display: flex;
@@ -10,6 +10,8 @@
   box-shadow: inset 0px -1px 0px rgba(0, 0, 0, 0.13);
   cursor: pointer;
 }
+
+
 
 .title {
   color: var(--text-additional-color);
@@ -34,5 +36,13 @@
 }
 
 .link {
+  width: 400px;
   text-decoration: none;
+}
+
+@media screen and (max-width: 938px) {
+  .link {
+    width: 100%;
+    max-width: 500px;
+  }
 }

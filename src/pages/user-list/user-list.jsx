@@ -10,7 +10,7 @@ const UserList = () => {
   return (
     <div style={{ width: '90vw', height: '100vh', display: 'flex', flexDirection: 'column', marginTop: '10px' }}>
       <ButtonExit />
-      <div style={{ alignSelf: 'center', marginTop: '10%', display: 'flex', flexWrap: 'wrap', gap: '8px', maxWidth: 'clamp(18.75rem, 2.3214rem + 82.1429vw, 76.25rem)' }}>
+      <div style={{ marginTop: '10%', display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '8px', maxWidth: '1220px' }}>
         {users.map(user => (
           user.role === 'user' &&
           <Card 
