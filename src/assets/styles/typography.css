@@ -17,8 +17,8 @@
   color: var(--red-color);
 }
 
-.text_color_red-bg {
-  color: var(--red-bg-color);
+.text_color_bg {
+  color: var(--background);
 }
 
 .text_color_additional {

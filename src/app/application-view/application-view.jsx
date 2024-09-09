@@ -5,6 +5,7 @@ import Login from "../../pages/login/login";
 import Register from "../../pages/register/register";
 import Profile from "../../pages/profile/profile";
 import UserList from "../../pages/user-list/user-list";
+import UserFile from "../../pages/user-file/user-file";
 import NotFound from "../../pages/not-found/not-found";
 
 import ProtectedRoute from "../protected-route/protected-route";
@@ -46,6 +47,16 @@ useEffect(() => {
             role="user"
           >
             <Profile />
+          </ProtectedRoute>
+        } 
+      />
+      <Route 
+        path="/profile/:id" 
+        element={
+          <ProtectedRoute
+            role="admin"
+          >
+            <UserFile />
           </ProtectedRoute>
         } 
       />

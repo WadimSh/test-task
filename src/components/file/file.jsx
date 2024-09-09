@@ -1,7 +1,6 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { StateContext } from "../../utils/contexts/contexts";
 import { Input, Button, Textarea } from "../../ui-lib";
 
 import { 
@@ -12,62 +11,51 @@ import {
   MAXIMUM_USERNAME_LENGTH,
 } from "../../utils/constants/constants";
 
-import style from "./sign-up.module.css";
+import style from "./file.module.css";
 
-const SignUp = () => {
+const File = ({ id }) => {
   const navigate = useNavigate();
-  const { setSharedValue } = useContext(StateContext);
-
-  const [userData, setUserData] = useState({
-    id: 100,
-    name: "",
-    password: "",
-    email: "",
-    about: "",
-    role: "user",
-  });
-
   const [users, setUsers] = useState(() => {
     const storedUsers = localStorage.getItem('users');
     return storedUsers ? JSON.parse(storedUsers) : [];
   });
-
-  const id = users.length + 1;
-
-  const addUser = () => {
-    const newUsers = [...users, userData];
-    localStorage.setItem('users', JSON.stringify(newUsers));
-    setUsers(newUsers);
-  };
+  const user = users.find(u => u.id === +id);
+  const [userData, setUserData] = useState(user);
   
-  const [errorMessage, setErrorMessage] = useState("");
-
-  const usernameValid = userData.name.length >= MINIMUM_USERNAME_LENGTH && userData.name.length <= MAXIMUM_USERNAME_LENGTH;
-  const passwordValid = userData.password.length >= MINIMUM_PASSWORD_LENGTH;
   const emailValid = EMAIL_REGULAR.test(userData.email);
-  const submitDisabled = !usernameValid || !passwordValid || !emailValid;
+
+  const errorEmail = !emailValid && 'Не правельный e-mail';
 
   const onChangeInput = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setUserData((prevState) => ({ ...prevState, [name]: value, id: id }));    
+    setUserData((prevState) => ({ ...prevState, [name]: value}));    
   };
 
-  const registerUser = (event) => {
+  const updateUser = (event) => {
     event.preventDefault();
-    errorMessage && setErrorMessage("");
-    const user = users.find(u => u.name === userData.name && u.password === userData.password && u.email === userData.email);
-    if (user) {
-      setErrorMessage("Вы уже зарегестрированы");
-      return
+    const existingUserIndex = users.findIndex((user) => user.id === userData.id);
+    if (existingUserIndex !== -1) {
+      const newUsers = [...users];
+      newUsers[existingUserIndex] = userData;
+      localStorage.setItem('users', JSON.stringify(newUsers));
+      setUsers(newUsers);
+    } else {
+      const newUsers = [...users, userData];
+      localStorage.setItem('users', JSON.stringify(newUsers));
+      setUsers(newUsers);
     }
-    setSharedValue(userData);
-    addUser();
-    navigate('/', { replace: true });
+  };
+
+  const handleDeleteClick = () => {
+    const newUsers = users.filter((user) => user.id !== userData.id);
+    localStorage.setItem('users', JSON.stringify(newUsers));
+    setUsers(newUsers);
+    navigate(-1);
   };
 
   return (
-    <form className={style.form} onSubmit={registerUser}>
+    <form className={style.form} onSubmit={updateUser}>
       <Input 
         id={1}
         type="text"
@@ -79,7 +67,6 @@ const SignUp = () => {
         extraClass="mb-8"
         minLength={MINIMUM_USERNAME_LENGTH}
         maxLength={MAXIMUM_USERNAME_LENGTH}
-        required={true}
       />
       <Input
         id={2}
@@ -90,7 +77,7 @@ const SignUp = () => {
         placeholder="Укажите ваш e-mail"
         value={userData.email}
         extraClass="mb-8"
-        required={true}
+        error={errorEmail}
       />
       <Input 
         id={3}
@@ -102,7 +89,6 @@ const SignUp = () => {
         value={userData.password}
         minLength={MINIMUM_PASSWORD_LENGTH}
         extraClass="mb-8"
-        required={true}
       />
       <Textarea
         id={4}
@@ -111,18 +97,26 @@ const SignUp = () => {
         onChange={onChangeInput}
         label="О себе"
         placeholder="Расскажите о себе"
+        defaultValue={userData.about}
         maxLength={MAXIMUM_DESCRIPTION_LENGTH}
       />
-      {errorMessage && <span className={style.error}>{errorMessage}</span>}
-      <Button 
-        type="submit"
-        kind="primary"
-        text="Зарегистрироваться"
-        disabled={submitDisabled}
-        extraClass={style.btn}
-      />
+      <div className={style.block_btn}>
+        <Button 
+          type="submit"
+          kind="primary"
+          text="Сохранить изменения"
+        />
+        <Button 
+          type="button"
+          kind="primary"
+          text="Удалить"
+          onClick={handleDeleteClick}
+          extraClass={style.btn}
+        />
+      </div>
+      
     </form>
   );
 };
 
-export default SignUp;
+export default File;

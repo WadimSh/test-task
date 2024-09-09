@@ -1,0 +1,23 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 560px;
+  width: clamp(300px, 50vw, 400px);
+  margin-bottom: 64px;
+}
+
+.btn {
+  background: var(--red-color);
+}
+
+.block_btn {
+  margin-top: auto;
+  display: flex;
+  gap: 8px;
+}
+
+@media screen and (max-width: 759px) {
+  .block_btn {
+    flex-direction: column;
+  }
+}
