@@ -32,7 +32,8 @@ const SignUp = () => {
     return storedUsers ? JSON.parse(storedUsers) : [];
   });
 
-  const id = users.length + 1;
+  const randomNum = Math.floor(Math.random() * (1000 - 6 + 1) + 6);
+  const id = users.length + randomNum;
 
   const addUser = () => {
     const newUsers = [...users, userData];
