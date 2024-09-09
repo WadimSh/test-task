@@ -4,6 +4,7 @@ export const users = [
     name: 'Олег',
     password: '12345',
     email: 'oleg@gmail.com',
+    about: "Немного о себе, я Олег.",
     role: 'admin',
   },
   {
@@ -11,6 +12,7 @@ export const users = [
     name: 'Иван',
     password: '12345',
     email: 'ivan@gmail.com',
+    about: "Немного о себе, я Иван - менеджер.",
     role: 'user',
   },
   {
@@ -18,6 +20,7 @@ export const users = [
     name: 'Валентина',
     password: '12345',
     email: 'valentina@gmail.com',
+    about: "Немного о себе, я Валентина - глав.бух.",
     role: 'user',
   },
   {
@@ -25,6 +28,7 @@ export const users = [
     name: 'Максим',
     password: '12345',
     email: 'maxs@gmail.com',
+    about: "Немного о себе, я Максим - охранник.",
     role: 'user',
   },
   {
@@ -32,6 +36,7 @@ export const users = [
     name: 'Ольга',
     password: '12345',
     email: 'olga@gmail.com',
+    about: "Немного о себе, я Ольга - секретарь.",
     role: 'user',
   },
 ]

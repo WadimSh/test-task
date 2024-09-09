@@ -1,0 +1,41 @@
+.grid {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.formelement {
+  width: clamp(150px, 50vw, 200px);
+  height: clamp(150px, 50vw, 200px);
+  cursor: pointer;
+  box-shadow:0px 0px 20px 5px rgba(100,100,100,0.1);
+}
+
+.formelement input {
+  display:none;
+}
+
+.formelement img {
+  width:100%;
+  cursor: pointer;
+  height:100%;
+  object-fit:cover;
+}
+
+.formelement div {
+  position:relative;
+  height:36px;
+  cursor: pointer;
+  margin-top:-40px;
+  background:rgba(0,0,0,0.5);
+  text-align:center;
+  line-height:40px;
+  font-size:13px;
+  color:#f5f5f5;
+  font-weight:600;
+}
+
+.formelement div span {
+  font-size:40px;
+}

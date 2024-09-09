@@ -75,7 +75,7 @@ const SignUp = () => {
         onChange={onChangeInput}
         label="Имя пользователя"
         placeholder="Введите имя пользователя"
-        value={userData.username}
+        value={userData.name}
         extraClass="mb-8"
         minLength={MINIMUM_USERNAME_LENGTH}
         maxLength={MAXIMUM_USERNAME_LENGTH}
@@ -105,7 +105,7 @@ const SignUp = () => {
         required={true}
       />
       <Textarea
-        id={5}
+        id={4}
         type="about"
         name="about"
         onChange={onChangeInput}

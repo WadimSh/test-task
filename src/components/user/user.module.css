@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 560px;
+  width: clamp(300px, 50vw, 400px);
+  margin-bottom: 64px;
+}
+
+.inputdef {
+  border: 2px solid var(--grey-color-3);
+  background-color: var(--grey-color-9);
+  box-sizing: border-box;
+  color: var(--black-color);
+  cursor: no-drop;
+}
+
+.btn {
+  margin-top: auto;
+}
