@@ -1,10 +1,10 @@
 export const users = [
   {
     id: 1,
-    name: 'Олег',
+    name: 'Константин',
     password: '12345',
-    email: 'oleg@gmail.com',
-    about: "Немного о себе, я Олег.",
+    email: 'konstantin@gmail.com',
+    about: "Немного о себе, я админ.",
     role: 'admin',
   },
   {
