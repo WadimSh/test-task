@@ -8,9 +8,9 @@ const UserFile = () => {
   let { id } = useParams();
 
   return (
-    <div style={{ width: '90vw', height: '100vh', display: 'flex', flexDirection: 'column', marginTop: '10px' }}>
+    <div className="layout-page">
       <ButtonReturn />
-      <div style={{ width: '100%', maxWidth: '384px', minWidth: '300px', marginTop: '8%', alignSelf: 'center', display: 'flex', justifyContent: 'center' }}>
+      <div className="file">
       <File id={id} />
       </div>
     </div>

@@ -7,9 +7,9 @@ import { ButtonExit } from '../../ui-lib';
 const Profile = () => {
     
   return (
-    <div style={{ width: '90vw', height: '100vh', display: 'flex', flexDirection: 'column', marginTop: '10px' }}>
+    <div className="layout-page">
       <ButtonExit />
-      <div style={{ width: '100%', maxWidth: '384px', minWidth: '300px', alignSelf: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div className="profile">
         <PreviewAvatar />
         <User />   
       </div>

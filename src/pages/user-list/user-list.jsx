@@ -8,9 +8,9 @@ const UserList = () => {
   const users = storedUsers ? JSON.parse(storedUsers) : [];
 
   return (
-    <div style={{ width: '90vw', height: '100vh', display: 'flex', flexDirection: 'column', marginTop: '10px' }}>
+    <div className="layout-page">
       <ButtonExit />
-      <div style={{ alignSelf: 'center', marginTop: '10%', display: 'flex', flexWrap: 'wrap', gap: '8px', maxWidth: '1220px' }}>
+      <div className="list">
         {users.map(user => (
           user.role === 'user' &&
           <Card 
